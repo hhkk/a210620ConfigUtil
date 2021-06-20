@@ -112,12 +112,17 @@ alias gfmj="find . -name '*.js' | xargs grep \<\<\< & find . -name '*.js' | xarg
 #alias gbd='git branch | xargs git branch -D' # THIS GIT COMMAND WIPES OUT ALL LOCAL BRANCHES
 
 
-backupbashetc ()
+bashbackup ()
 {
     cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.
+    cd /Users/hkon/utd/a210620ConfigUtil
+    git add -A
+    local commit_message='no commit msg provided'
+    if [ $# -gt 0 ];  then
+	  commit_message = $1
+    fi
+    git commit -m \"$commit_message\"
     
-
-
 
 }
 
