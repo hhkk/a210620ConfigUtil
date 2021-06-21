@@ -552,25 +552,16 @@ echo "hk100"
 
 bashbackup ()
 {
-    echo "a"
     echo arg1 is "$1"
-    echo "b"
     cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.bash_profile
     cd /Users/hkon/utd/a210620ConfigUtil
     git add -A
-    echo "1"
-    local commit_message='ppphi hk no commit msg providedppp'
-    echo "3"
-    echo "$commit_message"
-    echo "5"
+    local commit_message='no commit msg (arg1 to bash fn bashbackup) provided'
     if [ $# -gt 0 ];  then
-	echo "6.5 in if"
 	commit_message=$1
-        echo ooo "@$commit_message"
-	echo "7set cm"
+        #echo ooo "@$commit_message"
     fi
-    echo $commit_message
-    echo "done if"
+    echo final commit message is [$commit_message]
     
     git commit -m "@$commit_message"
 
