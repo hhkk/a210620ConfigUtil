@@ -564,7 +564,7 @@ bashbackup ()
     echo "$commit_message"
     echo "5"
     if [ $# -gt 0 ];  then
-	echo "6in if"
+	echo "6.5 in if"
 	commit_message=$1
         echo ooo "@$commit_message"
 	echo "7set cm"
