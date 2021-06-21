@@ -573,7 +573,7 @@ bashbackup ()
     
     git commit -m '$commit_message'
 
-    git push origin a210620ConfigUtil
+    git push origin main
 }
 
 
