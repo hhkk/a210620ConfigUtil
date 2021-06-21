@@ -562,9 +562,7 @@ bashbackup ()
         #echo ooo "@$commit_message"
     fi
     echo final commit message is [$commit_message]
-    
     git commit -m "@$commit_message"
-
     git push origin main
 }
 
