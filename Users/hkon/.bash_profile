@@ -1,3 +1,4 @@
+echo "hka"
 alias sshvm="ssh -o ServerAliveInterval=30  -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172" 
 
 ag() { # alias | grep -i $
@@ -111,20 +112,9 @@ alias gfm="find . -name '*.dart' | xargs grep \<\<\< & find . -name '*.dart' | x
 alias gfmj="find . -name '*.js' | xargs grep \<\<\< & find . -name '*.js' | xargs grep \>\>\>"
 #alias gbd='git branch | xargs git branch -D' # THIS GIT COMMAND WIPES OUT ALL LOCAL BRANCHES
 
+echo "hk1"
 
-bashbackup ()
-{
-    cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.
-    cd /Users/hkon/utd/a210620ConfigUtil
-    git add -A
-    local commit_message='no commit msg provided'
-    if [ $# -gt 0 ];  then
-	  commit_message = $1
-    fi
-    git commit -m \"$commit_message\"
-    
 
-}
 
 
 
@@ -545,6 +535,7 @@ echo 'hi mom2'
 #shopt -s histappend
 # After each command, append to the history file and reread it
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+echo "hi mom3"
 
 #OR HIST?
 # from https://apple.stackexchange.com/questions/57569/how-to-share-history-between-terminal-tabs
@@ -552,8 +543,41 @@ echo 'hi mom2'
 #export HISTSIZE=100000                   # big big history
 #export HISTFILESIZE=100000               # big big history
 #hbk shopt -s histappend                      # append to history, don't overwrite it
+echo "himom50"
 # Save and reload the history after each command finishes
 #hbk export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+echo "hk100"
+
+
+bashbackup ()
+{
+    echo "a"
+    echo "$1"
+    echo "b"
+    cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.
+    cd /Users/hkon/utd/a210620ConfigUtil
+    git add -A
+    echo "1"
+    local commit_message='hi hk no commit msg provided'
+    echo "3"
+    echo "$commit_message"
+    echo "5"
+    if [ $# -gt 0 ];  then
+	echo "in if"
+	$commit_message = '$1'
+	echo "set cm"
+    fi
+    echo $commit_message
+    echo "done if"
+    
+    git commit -m '$commit_message'
+
+}
+
+
+
+
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
