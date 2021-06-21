@@ -559,7 +559,7 @@ bashbackup ()
     cd /Users/hkon/utd/a210620ConfigUtil
     git add -A
     echo "1"
-    local commit_message='hi hk no commit msg provided'
+    local commit_message='ppphi hk no commit msg providedppp'
     echo "3"
     echo "$commit_message"
     echo "5"
