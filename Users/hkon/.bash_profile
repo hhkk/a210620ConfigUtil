@@ -555,7 +555,7 @@ bashbackup ()
     echo "a"
     echo "$1"
     echo "b"
-    cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.
+    cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.bash_profile
     cd /Users/hkon/utd/a210620ConfigUtil
     git add -A
     echo "1"
@@ -578,7 +578,7 @@ bashbackup ()
 
 
 
-
+echo "green"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hkon/.sdkman"
