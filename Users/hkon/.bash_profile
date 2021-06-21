@@ -571,9 +571,9 @@ bashbackup ()
     echo $commit_message
     echo "done if"
     
-    git commit -m "$commit_message"
+    git commit -m "@$commit_message"
 
-    git push origin main
+#    git push origin main
 }
 
 
