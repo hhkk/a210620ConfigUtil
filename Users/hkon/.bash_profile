@@ -559,9 +559,8 @@ bashbackup ()
     local commit_message='no commit msg provided'
     if [ $# -gt 0 ];  then
 	commit_message=$1
-        echo ooo "@$commit_message"
     fi
-    echo final commit message is [[[[[$commit_message]]]]]
+    echo commit message is [$commit_message]
     git commit -m "@$commit_message"
     git push origin main
 }
