@@ -565,7 +565,7 @@ bashbackup ()
     echo "5"
     if [ $# -gt 0 ];  then
 	echo "in if"
-	$commit_message = '$1'
+	@$commit_message = $1
 	echo "set cm"
     fi
     echo $commit_message
@@ -573,7 +573,7 @@ bashbackup ()
     
     git commit -m "@$commit_message"
 
-#    git push origin main
+    git push origin main
 }
 
 
