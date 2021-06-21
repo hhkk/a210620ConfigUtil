@@ -553,7 +553,7 @@ echo "hk100"
 bashbackup ()
 {
     echo "a"
-    echo "$1"
+    echo arg1 is "$1"
     echo "b"
     cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.bash_profile
     cd /Users/hkon/utd/a210620ConfigUtil
