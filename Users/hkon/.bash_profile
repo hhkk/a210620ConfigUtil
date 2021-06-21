@@ -556,10 +556,10 @@ bashbackup ()
     cp /Users/hkon/.bash_profile /Users/hkon/utd/a210620ConfigUtil/Users/hkon/.bash_profile
     cd /Users/hkon/utd/a210620ConfigUtil
     git add -A
-    local commit_message='no commit msg (arg1 to bash fn bashbackup) provided'
+    local commit_message='no commit msg provided'
     if [ $# -gt 0 ];  then
 	commit_message=$1
-        #echo ooo "@$commit_message"
+        echo ooo "@$commit_message"
     fi
     echo final commit message is [[[[[$commit_message]]]]]
     git commit -m "@$commit_message"
