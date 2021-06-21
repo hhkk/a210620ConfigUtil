@@ -564,10 +564,10 @@ bashbackup ()
     echo "$commit_message"
     echo "5"
     if [ $# -gt 0 ];  then
-	echo "in if"
+	echo "6in if"
 	$commit_message=$1
         echo ooo "@$commit_message"
-	echo "set cm"
+	echo "7set cm"
     fi
     echo $commit_message
     echo "done if"
