@@ -525,7 +525,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":/usr/local/Cellar/node/14.14.0/bin
 
 
-echo 'hi mom2'
+echo 'hi mom5'
 
 
 # history mod to share across terminals - from https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
