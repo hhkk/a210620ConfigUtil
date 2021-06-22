@@ -525,7 +525,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":/usr/local/Cellar/node/14.14.0/bin
 
 
-echo 'hi mom5'
+echo 'hi mom6'
 
 
 # history mod to share across terminals - from https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
@@ -563,6 +563,7 @@ bashbackup ()
     echo commit message is [$commit_message]
     git commit -m "@$commit_message"
     git push origin main
+    echo "see https://github.com/hhkk/a210620ConfigUtil/commits/main"
 }
 
 
