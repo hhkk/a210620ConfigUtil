@@ -570,6 +570,9 @@ bashbackup ()
 
 echo "green"
 
+echo "https://github.com/hhkk/a210620ConfigUtil/commits/main"
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hkon/.sdkman"
 [[ -s "/Users/hkon/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/hkon/.sdkman/bin/sdkman-init.sh"
