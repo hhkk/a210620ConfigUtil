@@ -1,4 +1,10 @@
 echo "hka"
+
+
+alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync   
+'
+alias rsync_flutter='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
+
 alias sshvm="ssh -o ServerAliveInterval=30  -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172" 
 
 ag() { # alias | grep -i $
@@ -16,7 +22,7 @@ alias pgsql='echo enter \\dt to see DB tables && psql'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 alias fbw='flutter build web'
-alias psql='psql postgres' #to run db database
+alias psqlhk='psql -U hkon -d u2d_1_0' #to run db database
 alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
 alias sshmk='ssh -i /Users/hkon/.ssh/mkon.pem mkon@20.55.5.172'
 alias fpg='flutter pub get'
@@ -112,6 +118,8 @@ alias gfm="find . -name '*.dart' | xargs grep \<\<\< & find . -name '*.dart' | x
 alias gfmj="find . -name '*.js' | xargs grep \<\<\< & find . -name '*.js' | xargs grep \>\>\>"
 #alias gbd='git branch | xargs git branch -D' # THIS GIT COMMAND WIPES OUT ALL LOCAL BRANCHES
 
+alias hhk='http-server -p 8083'
+
 echo "hk1"
 
 
@@ -134,18 +142,51 @@ parse_git_branch() {
 
 glall () { # git log all pairs
     git fetch --all
-    
-    echo '------------- 1 git log hkdev2..origin/hkdev2 ========================================'
-                          git log hkdev2..origin/hkdev2 | more
 
-    echo '------------- 2 git log origin/hkdev2..hkdev2 ========================================'
+    # hkdev2 against itself
+    echo '------------- 1 git log hkdev2..origin/hkdev2 ===================='
+                          git log hkdev2..origin/hkdev2 | more
+    echo '------------- 2 git log origin/hkdev2..hkdev2 ===================='
                           git log origin/hkdev2..hkdev2  | more
 
-			  
-  #  echo '------------- 3 git log hkdev2..origin/main1.0 ========================================'
+    # main against itself
+    echo '------------- 3 git log main1.0..origin/main1.0 ===================='
+                          git log main1.0..origin/main1.0 | more
+    echo '------------- 4 git log origin/main1.0..main1.0 ===================='
+                          git log origin/main1.0..main1.0 | more
+
+	 
+    echo '------------- 7 git log origin/HS_Dev..origin/main1.0 ===================='
+                          git log origin/HS_Dev..origin/main1.0 | more
+
+    echo '------------- 7.5 git log origin/hkdev2..origin/main1.0 ===================='
+                          git log origin/hkdev2..origin/main1.0 | more
+
+#    echo '------------- 8 git log origin/main1.0..origin/HS_Dev ===================='
+#                          git log origin/main1.0..origin/HS_Dev | more
+
+    
+#    echo '------------- 8.5 git log origin/main1.0..origin/hkdev2 ===================='
+#                          git log origin/main1.0..origin/hkdev2 | more
+
+    
+#    echo '------------- 8 git log origin/main1.0..origin/HS_Dev ===================='
+#                          git log origin/main1.0..origin/HS_Dev | more
+
+    
+
+    echo '------------- 10 git log origin/hkdev2..origin/HS_Dev ===================='
+    git log origin/hkdev2..origin/HS_Dev | more
+
+
+    echo '------------- 10 git log origin/HS_Dev..origin/hkdev2 ===================='
+    git log origin/HS_Dev..origin/hkdev2 | more
+
+
+			  #  echo '------------- 3 git log hkdev2..origin/main1.0 ===================='
   #                        git log hkdev2..origin/main1.0 | more
 
-   # echo '------------- 4 git log origin/main1.0..origin/hkdev2 ========================================'
+   # echo '------------- 4 git log origin/main1.0..origin/hkdev2 ===================='
    #                       git log origin/main1.0..origin/hkdev2 | more
 
 			  
@@ -160,18 +201,13 @@ glall () { # git log all pairs
    # echo '------------- 7 git log origin/HS_Dev..origin/main1.0 ========================================'
    #                       git log origin/HS_Dev..origin/main1.0 | more
 
-    echo '------------- 8 git log origin/HS_Dev..origin/hkdev2 ========================================'
-                          git log origin/HS_Dev..origin/hkdev2 | more
+#    echo '------------- 8 git log origin/HS_Dev..origin/hkdev2 ========================================'
+#                          git log origin/HS_Dev..origin/hkdev2 | more
 
 			  
  #   echo '------------- 9 git log origin/main1.0..origin/HS_Dev ========================================'
  #                         git log origin/main1.0..origin/HS_Dev | more
 
-    echo '------------- 10 git log origin/hkdev2..origin/HS_Dev ========================================'
-    git log origin/hkdev2..origin/HS_Dev | more
-    
-    echo '------------- 11 git log hkdev2..origin/HS_Dev ========================================'
-                          git log hkdev2..origin/HS_Dev | more
 
 
 
@@ -564,6 +600,7 @@ bashbackup ()
     git commit -m "@$commit_message"
     git push origin main
     echo "see https://github.com/hhkk/a210620ConfigUtil/commits/main"
+    open -a "Google Chrome" https://github.com/hhkk/a210620ConfigUtil/commits/main
 }
 
 
