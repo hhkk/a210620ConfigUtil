@@ -140,93 +140,19 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-glall () { # git log all pairs
-    git fetch --all
 
-    # hkdev2 against itself
-    echo '------------- 1 git log hkdev2..origin/hkdev2 ===================='
-                          git log hkdev2..origin/hkdev2 | more
-    echo '------------- 2 git log origin/hkdev2..hkdev2 ===================='
-                          git log origin/hkdev2..hkdev2  | more
-
-    # main against itself
-    echo '------------- 3 git log main1.0..origin/main1.0 ===================='
-                          git log main1.0..origin/main1.0 | more
-    echo '------------- 4 git log origin/main1.0..main1.0 ===================='
-                          git log origin/main1.0..main1.0 | more
-
-	 
-    echo '------------- 7 git log origin/HS_Dev..origin/main1.0 ===================='
-                          git log origin/HS_Dev..origin/main1.0 | more
-
-    echo '------------- 7.5 git log origin/hkdev2..origin/main1.0 ===================='
-                          git log origin/hkdev2..origin/main1.0 | more
-
-#    echo '------------- 8 git log origin/main1.0..origin/HS_Dev ===================='
-#                          git log origin/main1.0..origin/HS_Dev | more
-
-    
-#    echo '------------- 8.5 git log origin/main1.0..origin/hkdev2 ===================='
-#                          git log origin/main1.0..origin/hkdev2 | more
-
-    
-#    echo '------------- 8 git log origin/main1.0..origin/HS_Dev ===================='
-#                          git log origin/main1.0..origin/HS_Dev | more
-
-    
-
-    echo '------------- 10 git log origin/hkdev2..origin/HS_Dev ===================='
-    git log origin/hkdev2..origin/HS_Dev | more
-
-
-    echo '------------- 10 git log origin/HS_Dev..origin/hkdev2 ===================='
-    git log origin/HS_Dev..origin/hkdev2 | more
-
-
-			  #  echo '------------- 3 git log hkdev2..origin/main1.0 ===================='
-  #                        git log hkdev2..origin/main1.0 | more
-
-   # echo '------------- 4 git log origin/main1.0..origin/hkdev2 ===================='
-   #                       git log origin/main1.0..origin/hkdev2 | more
-
-			  
-			  
-#    echo '------------- 5 git log origin/main1.0..main1.0 ========================================'
-#                          git log origin/main1.0..main1.0 | more
-
-#    echo '------------- 6 git log main1.0..origin/main1.0 ========================================'
-#                          git log main1.0..origin/main1.0 | more
-
-
-   # echo '------------- 7 git log origin/HS_Dev..origin/main1.0 ========================================'
-   #                       git log origin/HS_Dev..origin/main1.0 | more
-
-#    echo '------------- 8 git log origin/HS_Dev..origin/hkdev2 ========================================'
-#                          git log origin/HS_Dev..origin/hkdev2 | more
-
-			  
- #   echo '------------- 9 git log origin/main1.0..origin/HS_Dev ========================================'
- #                         git log origin/main1.0..origin/HS_Dev | more
-
-
-
-
-
-
+gl2() {
+ echo '========================== ' $1'a) git log ' $2 '..' $3
+                          git log $2..$3
+ echo '========================== ' $1'b) git log ' $3 '..' $2
+                          git log $3..$2
 }
 
-
-glall2 () { # git log all pairs
-    git fetch --all
-    
-    
-    echo '-----glall2-------- 1a git log HS_Dev..origin/HS_Dev ========================================'
-                          git log HS_Dev..origin/HS_Dev | more
-
-
-
-
-
+glall () {
+    gl2 1 'hkdev2' 'origin/hkdev2';
+    gl2 2 'main1.0' 'origin/main1.0';
+    gl2 3 'origin/hkdev2' 'origin/HS_Dev';
+    #gl2 4 'origin/hkdev2' 'origin/main1.0';
 }
 
 
