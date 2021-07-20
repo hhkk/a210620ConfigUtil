@@ -149,8 +149,9 @@ gl2() {
 }
 
 glall () {
+    git fetch --all
     gl2 1 'hkdev2' 'origin/hkdev2';
-    gl2 2 'main1.0' 'origin/main1.0';
+    #gl2 2 'main1.0' 'origin/main1.0';
     gl2 3 'origin/hkdev2' 'origin/HS_Dev';
     #gl2 4 'origin/hkdev2' 'origin/main1.0';
 }
