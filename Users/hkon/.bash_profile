@@ -151,12 +151,23 @@ gl2() {
 glall () {
     git fetch --all
     gl2 1 'hkdev2' 'origin/hkdev2';
-    #gl2 2 'main1.0' 'origin/main1.0';
-    gl2 3 'origin/hkdev2' 'origin/HS_Dev';
+    gl2 2 'origin/hkdev2' 'origin/HS_Dev';
+    #gl2 3 'main1.0' 'origin/main1.0';
     #gl2 4 'origin/hkdev2' 'origin/main1.0';
+    git status;
 }
 
 
+
+glall2()
+{
+    pushd .
+    cd70
+    glall
+    cd71
+    glall
+    popd
+}
 
 
 
@@ -377,6 +388,10 @@ kill -9 $1
 
 g3s () {
 grep -rin $1 .
+}
+
+g3js () {
+    grep  --exclude-dir=./node_modules  -rin $1 . 
 }
 
 g3s () {
