@@ -1,6 +1,10 @@
 echo "hka"
 
 
+
+alias nodeversion_u2d='sudo n 15.0.1'
+alias nodeversion_loopback_lb4='sudo n latest'
+
 alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync   
 '
 alias rsync_flutter='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
@@ -27,6 +31,7 @@ alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
 alias sshmk='ssh -i /Users/hkon/.ssh/mkon.pem mkon@20.55.5.172'
 alias fpg='flutter pub get'
 alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
+alias cd73='cd /Users/hkon/utd/a210725_lb4'
 alias cd72='cd /Users/hkon/utd/a201123_testGit'
 alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
 alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
@@ -129,6 +134,7 @@ echo "hk1"
 alias gpod='git pull origin main1.0'
 alias gpoh='git pull origin hkdev2'
 alias gpohs='git pull origin HS_Dev'
+alias gpohsr='git pull origin HS_Dev --rebase'
 alias gpsod='git push origin main1.0'
 alias gpsoh='git push origin hkdev2'
 alias grh='git reset --hard'
@@ -159,7 +165,7 @@ glall () {
 
 
 
-glall2()
+gl3()
 {
     pushd .
     cd70
