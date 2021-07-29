@@ -27,12 +27,12 @@ alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 alias fbw='flutter build web'
 alias psqlhk='psql -U hkon -d u2d_1_0' #to run db database
+alias psqlu2d="psql 'dbname=u2d_1_1 host=localhost user=u2d_api_user password=u2d_api_user_pass port=5432 sslmode=prefer'"
 alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
 alias sshmk='ssh -i /Users/hkon/.ssh/mkon.pem mkon@20.55.5.172'
 alias fpg='flutter pub get'
 alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
-alias cd73='cd /Users/hkon/utd/a210725_lb4'
-alias cd72='cd /Users/hkon/utd/a201123_testGit'
+alias cd72='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts'
 alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
 alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
 alias cd70='cd /Users/hkon/utd/a201101_u2drest/u2d-rest && echo rest -- npm start'
@@ -189,9 +189,6 @@ gl3()
 
 export PS1="\u@\h \[\033[32m\]\w \[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-gsw() {
-    git switch $1
-}
 gpo() {    git pull --ff-only origin $1 ;}
 gco() {    git checkout  $1 ;}
 gsw() {
