@@ -32,6 +32,12 @@ alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
 alias sshmk='ssh -i /Users/hkon/.ssh/mkon.pem mkon@20.55.5.172'
 alias fpg='flutter pub get'
 alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
+
+
+
+alias cdt='cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*"'
+alias cd74='cd /Users/hkon/Downloads/brew_restcli'
+alias cd73='cd /Users/hkon/utd/a210801_TStest'
 alias cd72='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts'
 alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
 alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
@@ -133,11 +139,14 @@ echo "hk1"
 
 alias gpod='git pull origin main1.0'
 alias gpoh='git pull origin hkdev2'
+alias gpohr='git pull origin hkdev2 --rebase'
 alias gpohs='git pull origin HS_Dev'
 alias gpohsr='git pull origin HS_Dev --rebase'
 alias gpsod='git push origin main1.0'
 alias gpsoh='git push origin hkdev2'
+alias gpsohf='git push origin hkdev2 --force'
 alias grh='git reset --hard'
+alias grc='git rebase --continue'
 
 # https://unix.stackexchange.com/questions/216953/show-only-current-and-parent-directory-in-bash-prompt
 # https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
@@ -269,7 +278,6 @@ alias cdu='cd;cd utd'
 alias gra='grails run-app'
 alias gras='grails run-app --stacktrace'
 alias grp='./gradlew bootRun --parallel'
-alias grc='./gradlew client:bootRun'
 alias grs='./gradlew server:bootRun'
 alias gc='grails compile'
 #export PS1="\W>"
@@ -395,10 +403,6 @@ grep -rin $1 .
 
 g3js () {
     grep  --exclude-dir=./node_modules  -rin $1 . 
-}
-
-g3s () {
-grep -rin $1 .
 }
 
 g3sd () {
