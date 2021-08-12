@@ -35,7 +35,11 @@ alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
 
 
 
-alias cdt='cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*"'
+alias pause5='read -t 5 -p "I am going to wait for 5 seconds only ..."'
+alias cdt='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; echo "npm run seed";
+ cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*"'
+alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*'
+alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 alias cd74='cd /Users/hkon/Downloads/brew_restcli'
 alias cd73='cd /Users/hkon/utd/a210801_TStest'
 alias cd72='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts'
