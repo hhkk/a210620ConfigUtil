@@ -44,7 +44,13 @@ alias cdt='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; echo "npm run seed";
 
 alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*'
 
+alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
+
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*'
+
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
+
+alias cdjesttest=' cd72 ; tsc ; jest '
 
 
 # ------------ PROJECTS
@@ -563,6 +569,10 @@ bashbackup ()
     git push origin main
     echo "see https://github.com/hhkk/a210620ConfigUtil/commits/main"
     open -a "Google Chrome" https://github.com/hhkk/a210620ConfigUtil/commits/main
+
+    cd72
+    zip -r hkonDotIdeaFolder .idea
+    
 }
 
 
