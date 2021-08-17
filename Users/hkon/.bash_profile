@@ -571,7 +571,7 @@ bashbackup ()
     open -a "Google Chrome" https://github.com/hhkk/a210620ConfigUtil/commits/main
 
     cd72
-    zip -r hkonDotIdeaFolder .idea
+    zip -r /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/hkonDotIdeaFolder.zip .idea
     
 }
 
