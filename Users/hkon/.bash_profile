@@ -40,13 +40,13 @@ alias pause5='read -t 5 -p "hit any key. or I will continue in 5 seconds in any 
 
 # ------------- TEST 
 alias cdt='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; echo "npm run seed";
- cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*"'
+ cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*"'
 
-alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*'
+alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
 
 alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
 
-alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/*.*'
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
