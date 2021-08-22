@@ -35,22 +35,25 @@ alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
 
 
 
-alias pause5='read -t 5 -p "hit any key. or I will continue in 5 seconds in any case ..."'
+alias pause5='read -t 5 -p "hit any key to exit sleep. Else I will continue in 5 seconds in any case ..."'
 
 
 # ------------- TEST 
-alias cdt='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; echo "npm run seed";
- cd /Users/hkon/Downloads/brew_restcli; echo "./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*"'
 
-alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
+alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*; cd72'
 
 alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
 
-alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli;  -t 100000 ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
+alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-1.*'
+alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-2.*'
+alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
-alias cdjesttest=' cd72 ; tsc ; jest '
+alias cdjest=' cd72 ; tsc ; jest --detectOpenHandles --useStderr'
+alias cdjestemail=' cd72 ; tsc ; jest -- src/ts-out/test/unit/transport/email/EmailSend.jest.test.js'
+alias cdjestnmt=' cd72 ; tsc ; jest -- src/ts-out/test/unit/util/time/CalcNextMsgTime.jest.test.js'
 
 
 # ------------ PROJECTS
@@ -166,6 +169,7 @@ alias gpsoh='git push origin hkdev2'
 alias gpsohf='git push origin hkdev2 --force'
 alias grh='git reset --hard'
 alias grc='git rebase --continue'
+alias glab='echo "log across branches" & git log --all -- ./src/models/Record.ts '
 
 # https://unix.stackexchange.com/questions/216953/show-only-current-and-parent-directory-in-bash-prompt
 # https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
