@@ -44,10 +44,10 @@ alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause
 
 alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
 
-alias cdt2b='cd /Users/hkon/Downloads/brew_restcli;  -t 100000 ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
-alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-1.*'
-alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-2.*'
-alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3.*'
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
+alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-1*.*'
+alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-2*.*'
+alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
