@@ -40,7 +40,9 @@ alias pause5='read -t 5 -p "hit any key to exit sleep. Else I will continue in 5
 
 # ------------- TEST 
 
-alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*; cd72'
+alias cdtestall='start=$SECONDS;  echo "when tests complete in one minute, this test requires human eyes: go check that ustodo email was received"; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"' 
+
+alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*; cd72'
 
 alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
 
@@ -48,12 +50,15 @@ alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restc
 alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-1*.*'
 alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-2*.*'
 alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3*.*'
+alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-4*.*'
+alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-5*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
 alias cdjest=' cd72 ; tsc ; jest --detectOpenHandles --useStderr'
-alias cdjestemail=' cd72 ; tsc ; jest -- src/ts-out/test/unit/transport/email/EmailSend.jest.test.js'
-alias cdjestnmt=' cd72 ; tsc ; jest -- src/ts-out/test/unit/util/time/CalcNextMsgTime.jest.test.js'
+alias cdjest1emailsend=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j1-emailSend.jest.test.js'
+alias cdjest2emailrcv=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j2-emailRcv.jest.test.js'
+alias cdjest3nmt=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/util/time/Test-j3-calcNextMsgTime.jest.test.js'
 
 
 # ------------ PROJECTS
