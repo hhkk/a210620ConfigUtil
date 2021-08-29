@@ -35,12 +35,13 @@ alias cdf='cd /Users/hkon/dev/flutter/packages/flutter_tools/lib/src'
 
 
 
+alias pause1='read -t 1 -p "hit any key to exit sleep. Else I will continue in 1 second  in any case ..."'
 alias pause5='read -t 5 -p "hit any key to exit sleep. Else I will continue in 5 seconds in any case ..."'
 
 
 # ------------- TEST 
 alias cdtseed='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; echo "seed has been run"'
-alias cdtestall='start=$SECONDS;  echo "when tests complete in one minute, this test requires human eyes: go check that ustodo email was received"; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"' 
+alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"' 
 
 alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*; cd72'
 
