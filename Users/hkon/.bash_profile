@@ -1,15 +1,26 @@
 echo "hka"
 
+alias cdssh='cd /Users/hkon/.ssh'
 
 
 alias nodeversion_u2d='sudo n 15.0.1'
 alias nodeversion_loopback_lb4='sudo n latest'
 
-alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync   
-'
+alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync'
 alias rsync_flutter='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
 
+
+alias rsync_api3='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts ustodoproduction@20.55.90.168:/home/ustodoproduction/production/api'
+alias rsync_flutter3='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
+
+
+
 alias sshvm="ssh -o ServerAliveInterval=30  -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172" 
+
+alias sshvm3='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/hkon/hkon_ssh_ustodo3_created_on_azure.cer hkon@20.55.90.168'
+
+alias sshvm3p='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer ustodoproduction@20.55.90.168'
+
 
 ag() { # alias | grep -i $
     alias | grep -i $1
@@ -53,6 +64,9 @@ alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users
 alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3*.*'
 alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-4*.*'
 alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-5*.*'
+alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6*.*'
+alias cdt2b6a='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6a*.*'
+alias cdt2b6b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6b*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
@@ -180,8 +194,16 @@ alias glab='echo "log across branches" & git log --all -- ./src/models/Record.ts
 # https://unix.stackexchange.com/questions/216953/show-only-current-and-parent-directory-in-bash-prompt
 # https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
 
+
+
+
+
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+lsf() {
+       ls -d -1 "$PWD/"*
 }
 
 
@@ -259,7 +281,7 @@ echo "gcb HS_Dev..hkdev2"
 
 }
 
-zp() { #zip filename.zip foldername 
+ziphk() { # instr and command ;  zip -r $1 $2 ;  ziphk filename.zip foldername 
     zip -r $1 $2
 } 
     
