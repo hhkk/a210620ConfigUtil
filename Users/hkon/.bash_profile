@@ -10,8 +10,9 @@ alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_module
 alias rsync_flutter='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
 
 
-alias rsync_api3='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts ustodoproduction@20.55.90.168:/home/ustodoproduction/production/api'
-alias rsync_flutter3='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
+alias rsync_api3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
+alias rsync_ui3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules  $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
+alias rsync_flutter3='rsync --delete --progress --partial -avz --exclude node_modules $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
 
 
 
@@ -51,22 +52,26 @@ alias pause5='read -t 5 -p "hit any key to exit sleep. Else I will continue in 5
 
 
 # ------------- TEST 
-alias cdtseed='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; echo "seed has been run"'
+U2DBREWCLI_HOME="/Users/hkon/Downloads/brew_restcli"                                                                                                           
+alias cdrc='cd $U2DBREWCLI_HOME'
+
+
+alias cdtseed='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"'
 alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"' 
 
-alias cdt2='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*; cd72'
+alias cdt2='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/*.*; cd72'
 
-alias cdt2a='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts; npm run seed; pause5'
+alias cdt2a='cd $U2DAPI_HOME; npm run seed; pause5'
 
-alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restcli /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/*.*'
-alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-1*.*'
-alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-2*.*'
-alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-3*.*'
-alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-4*.*'
-alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-5*.*'
-alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6*.*'
-alias cdt2b6a='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6a*.*'
-alias cdt2b6b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/test/http/test-6b*.*'
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restcli $U2DAPI_HOME/test/http/*.*'
+alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 $U2DAPI_HOME/test/http/test-1*.*'
+alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-2*.*'
+alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-3*.*'
+alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4*.*'
+alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-5*.*'
+alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6*.*'
+alias cdt2b6a='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6a*.*'
+alias cdt2b6b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6b*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
@@ -80,7 +85,10 @@ alias cdjest3nmt=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-
 
 alias cd74='cd /Users/hkon/Downloads/brew_restcli'
 alias cd73='cd /Users/hkon/utd/a210801_TStest'
-alias cd72='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts'
+U2DAPI_HOME="/Users/hkon/utd/a2107276_u2drest/u2d-rest-ts"
+U2DFLUTTERWEB_HOME="/Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web"
+
+alias cd72='cd $U2DAPI_HOME'
 alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
 alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
 alias cd70='cd /Users/hkon/utd/a201101_u2drest/u2d-rest && echo rest -- npm start'
@@ -603,7 +611,7 @@ bashbackup ()
     open -a "Google Chrome" https://github.com/hhkk/a210620ConfigUtil/commits/main
 
     cd72
-    zip -r /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/hkonDotIdeaFolder.zip .idea
+    zip -r $U2DAPI_HOME/hkonDotIdeaFolder.zip .idea
     
 }
 
