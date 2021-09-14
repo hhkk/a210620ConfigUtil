@@ -2,18 +2,18 @@ echo "hka"
 
 alias cdssh='cd /Users/hkon/.ssh'
 
+alias hktest'=echo "hi hk test"'
 
 alias nodeversion_u2d='sudo n 15.0.1'
 alias nodeversion_loopback_lb4='sudo n latest'
 
-alias rsync_api='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync'
-alias rsync_flutter='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
-
+alias u2dprodpush='cddd ; source ./master_checkout_rsync_api_and_ui.sh'
 
 alias rsync_api3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
 alias rsync_ui3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules  $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
-alias rsync_flutter3='rsync --delete --progress --partial -avz --exclude node_modules $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
 
+alias rsync_api_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync'
+alias rsync_flutter_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
 
 
 alias sshvm="ssh -o ServerAliveInterval=30  -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172" 
@@ -64,14 +64,25 @@ alias cdt2='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"; pause5; cd 
 alias cdt2a='cd $U2DAPI_HOME; npm run seed; pause5'
 
 alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restcli $U2DAPI_HOME/test/http/*.*'
-alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 $U2DAPI_HOME/test/http/test-1*.*'
-alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-2*.*'
-alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-3*.*'
-alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4*.*'
-alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-5*.*'
-alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6*.*'
-alias cdt2b6a='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6a*.*'
-alias cdt2b6b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6b*.*'
+alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 $U2DAPI_HOME/test/http/test-1-*.*'
+alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-2-*.*'
+alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-3-*.*'
+alias cdt2b3d='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-3d*.*'
+alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4-*.*'
+alias cdt2b_seed_1_2_3_4='cdtseed; cdt2b1; cdt2b2; cdt2b3; cdt2b4';
+alias cdt2b_seed_2='cdtseed; cdt2b2';
+alias cdt2b_1_2_3_4='cdt2b1; cdt2b2; cdt2b3; cdt2b4';
+alias cdt2b5='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-5-*.*'
+alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-6-*.*'
+alias cdt2b7='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-7-*.*'
+alias cdt2b8='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-8-*.*'
+alias cdt2b9='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-9-*.*'
+alias cdt2b10='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-10-*.*'
+alias cdt2b11='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-11-*.*'
+alias cdt2b12='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-12-*.*'
+alias cdt2b13='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-13-*.*'
+alias cdt2b14='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-14-*.*'
+alias cdt2b15='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-15-*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
@@ -83,11 +94,13 @@ alias cdjest3nmt=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-
 
 # ------------ PROJECTS
 
+alias cd75='cd /Users/hkon/utd/a210913_tsSqlzExample/rest-api-node-typescript'
 alias cd74='cd /Users/hkon/Downloads/brew_restcli'
 alias cd73='cd /Users/hkon/utd/a210801_TStest'
 U2DAPI_HOME="/Users/hkon/utd/a2107276_u2drest/u2d-rest-ts"
 U2DFLUTTERWEB_HOME="/Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web"
 
+alias cddd='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/dev/deploy/prod'
 alias cd72='cd $U2DAPI_HOME'
 alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
 alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
@@ -167,7 +180,7 @@ alias gba='git branch -a'
 alias grso='git remote show origin'
 alias gs='echo "git status" & git status'
 alias gd='git diff'
-alias gs1='gsw main1.0'
+alias gs1='gsw main'
 alias gs2='gsw hkdev2'
 alias gs3='gsw HS_Dev'
 alias gbh='git branch HK_Dev'
@@ -224,10 +237,10 @@ gl2() {
 
 glall () {
     git fetch --all
-    gl2 1 'hkdev2' 'origin/hkdev2';
-    gl2 2 'origin/hkdev2' 'origin/HS_Dev';
+    gl2 111 'hkdev2' 'origin/hkdev2';
     #gl2 3 'main1.0' 'origin/main1.0';
-    #gl2 4 'origin/hkdev2' 'origin/main1.0';
+    gl2 222 'origin/hkdev2' 'origin/main';
+    gl2 333 'origin/hkdev2' 'origin/HS_Dev';
     git status;
 }
 
