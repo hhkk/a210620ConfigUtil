@@ -67,6 +67,7 @@ alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restc
 alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 $U2DAPI_HOME/test/http/test-1-*.*'
 alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-2-*.*'
 alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-3-*.*'
+alias cdt2b3b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-3b-*.*'
 alias cdt2b3d='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-3d*.*'
 alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4-*.*'
 alias cdt2b_seed_1_2_3_4='cdtseed; cdt2b1; cdt2b2; cdt2b3; cdt2b4';
@@ -239,7 +240,7 @@ glall () {
     git fetch --all
     gl2 111 'hkdev2' 'origin/hkdev2';
     #gl2 3 'main1.0' 'origin/main1.0';
-    gl2 222 'origin/hkdev2' 'origin/main';
+    #gl2 222 'origin/hkdev2' 'origin/main';
     gl2 333 'origin/hkdev2' 'origin/HS_Dev';
     git status;
 }
