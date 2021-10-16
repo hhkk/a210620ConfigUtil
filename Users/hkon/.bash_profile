@@ -56,14 +56,15 @@ U2DBREWCLI_HOME="/Users/hkon/Downloads/brew_restcli"
 alias cdrc='cd $U2DBREWCLI_HOME'
 
 
-alias cdtseed='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"'
-alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"' 
+alias cdtseed='cd $U2DAPI_HOME; tsc; npm run seed; echo "seed has been run"'
+alias cdtseedtest='cd $U2DAPI_HOME; tsc; npm run seed testdata; echo "seed seed testdata has been run"'
+alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"'
 
 alias cdt2='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/*.*; cd72'
 
 alias cdt2a='cd $U2DAPI_HOME; npm run seed; pause5'
 
-alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 ./restcli $U2DAPI_HOME/test/http/*.*'
+alias cdt2b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/*.*'
 alias cdt2b1='cd /Users/hkon/Downloads/brew_restcli; ./restcli -t 100000 $U2DAPI_HOME/test/http/test-1-*.*'
 alias cdt2b2='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-2-*.*'
 alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-3-*.*'
@@ -78,18 +79,20 @@ alias cdt2b6='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAP
 alias cdt2b7='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-7-*.*'
 alias cdt2b8='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-8-*.*'
 alias cdt2b9='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-9-*.*'
-alias cdt2b10='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-10-*.*'
-alias cdt2b11='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-11-*.*'
-alias cdt2b12='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-12-*.*'
-alias cdt2b13='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-13-*.*'
-alias cdt2b14='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-14-*.*'
+alias cdt2b10='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-10-*.*'
+alias cdt2b11='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-11-*.*'
+alias cdt2b12='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-12-*.*'
+alias cdt2b13a='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-13a-*.*'
+alias cdt2b13b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-13b-*.*'
+alias cdt2b13c='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-13c-*.*'
+alias cdt2b14='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-14-*.*'
 alias cdt2b15='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-15-*.*'
 
 alias cdt2f='cdt2 2>&1 | tee ./temp.txt; tail -f ./temp.txt'
 
 alias cdjest=' cd72 ; tsc ; jest --detectOpenHandles --useStderr'
-alias cdjest1emailsend=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j1-emailSend.jest.test.js'
-alias cdjest2emailrcv=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j2-emailRcv.jest.test.js'
+alias cdjest2emailsend=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j2-emailSend.jest.test.js'
+alias cdjest1emailrcv=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/transport/email/Test-j1-emailRcv.jest.test.js'
 alias cdjest3nmt=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-out/test/unit/util/time/Test-j3-calcNextMsgTime.jest.test.js'
 
 
@@ -193,7 +196,7 @@ alias gfm="find . -name '*.dart' | xargs grep \<\<\< & find . -name '*.dart' | x
 alias gfmj="find . -name '*.js' | xargs grep \<\<\< & find . -name '*.js' | xargs grep \>\>\>"
 #alias gbd='git branch | xargs git branch -D' # THIS GIT COMMAND WIPES OUT ALL LOCAL BRANCHES
 
-alias hhk='http-server -p 8083'
+alias hhk='http-server -p 8080'
 
 echo "hk1"
 
