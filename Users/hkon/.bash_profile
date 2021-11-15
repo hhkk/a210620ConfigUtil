@@ -56,8 +56,8 @@ U2DBREWCLI_HOME="/Users/hkon/Downloads/brew_restcli"
 alias cdrc='cd $U2DBREWCLI_HOME'
 
 
-alias cdtseed='cd $U2DAPI_HOME; tsc; npm run seed; echo "seed has been run"'
-alias cdtseedtest='cd $U2DAPI_HOME; tsc; npm run seed testdata; echo "seed seed testdata has been run"'
+alias cdtseed='read -p "Are you sure? Wipe Dev DB?  Press any key. To exit type  Ctrl-C." -n 1 -r; cd $U2DAPI_HOME; tsc; npm run seed; echo "seed has been run"'
+alias cdtseedtest='cd $U2DAPI_HOME; tsc; npm run seed U2D_TEST_RUN; echo "seed seed testdata has been run"'
 alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"'
 
 alias cdt2='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/*.*; cd72'
@@ -71,6 +71,8 @@ alias cdt2b3='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAP
 alias cdt2b3b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-3b-*.*'
 alias cdt2b3d='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/drafts/test-3d*.*'
 alias cdt2b4='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4-*.*'
+alias cdt2b4b='cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/test-4b-*.*'
+
 alias cdt2b_seed_1_2_3_4='cdtseed; cdt2b1; cdt2b2; cdt2b3; cdt2b4';
 alias cdt2b_seed_2='cdtseed; cdt2b2';
 alias cdt2b_1_2_3_4='cdt2b1; cdt2b2; cdt2b3; cdt2b4';
@@ -98,6 +100,7 @@ alias cdjest3nmt=' cd72 ; tsc ; jest  --detectOpenHandles --useStderr -- src/ts-
 
 # ------------ PROJECTS
 
+alias cdexport='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/devops/export/files'
 alias cd75='cd /Users/hkon/utd/a210913_tsSqlzExample/rest-api-node-typescript'
 alias cd74='cd /Users/hkon/Downloads/brew_restcli'
 alias cd73='cd /Users/hkon/utd/a210801_TStest'
@@ -260,7 +263,10 @@ gl3()
     popd
 }
 
-
+gtmp()
+{
+    grep -i $1 /Users/hkon/tmp/temp.txt 
+}
 
 
 
@@ -351,7 +357,7 @@ alias h='history'
 alias ns='npm start'
 alias ns2='npm run serve'
 alias cdu='cd;cd utd'
-alias gra='grails run-app'
+alias gra='git rebase --abort'
 alias gras='grails run-app --stacktrace'
 alias grp='./gradlew bootRun --parallel'
 alias grs='./gradlew server:bootRun'
@@ -384,6 +390,7 @@ alias dir='ls'
 alias ob='open build.gradle'
 alias i='/usr/local/bin/idea .'
 
+alias versioncheckall='/Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/versioncheck.sh'
 
 # FLUTTER 
 # FLUTTER 
@@ -571,6 +578,8 @@ sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i $1
 } 
 
 alias gsl="git stash list"
+alias gsd="git stash drop"
+alias gsa="git stash apply"
 alias gsp="git stash pop"
 
 alias cpcd='pwd | pbcopy'
