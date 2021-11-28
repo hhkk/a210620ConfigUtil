@@ -1,5 +1,8 @@
 echo "hka"
 
+# feature is not tested - let dir drive it: is ustodoproduction in the path?
+# export NODE_ENV="development"
+
 alias cdssh='cd /Users/hkon/.ssh'
 
 alias hktest'=echo "hi hk test"'
@@ -9,18 +12,23 @@ alias nodeversion_loopback_lb4='sudo n latest'
 
 alias u2dprodpush='cddd ; source ./master_checkout_rsync_api_and_ui.sh'
 
-alias rsync_api3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
-alias rsync_ui3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules  $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
+alias rsapi3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules --exclude .env.override $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
+alias rsui3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules  $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
 
 alias rsync_api_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync'
 alias rsync_flutter_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
 
 
-alias sshvm="ssh -o ServerAliveInterval=30  -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172" 
-
-alias sshvm3='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/hkon/hkon_ssh_ustodo3_created_on_azure.cer hkon@20.55.90.168'
-
 alias sshvm3p='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer ustodoproduction@20.55.90.168'
+
+alias sshvm='sshvm3p'
+
+alias sshvm3xxxxxxxx='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/hkon/hkon_ssh_ustodo3_created_on_azure.cer hkon@20.55.90.168'
+
+
+
+
+
 
 
 ag() { # alias | grep -i $
@@ -37,7 +45,8 @@ alias ustododr='psp 3000 && echo start db, cd70 ns for REST, cd71 run flutter'
 alias pgsql='echo enter \\dt to see DB tables && psql'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
-alias fbw='flutter build web'
+alias fbw='cd71; flutter build web'
+alias fbws='rsapi3; cd71; flutter build web; rsui3'
 alias psqlhk='psql -U hkon -d u2d_1_0' #to run db database
 alias psqlu2d="psql 'dbname=u2d_1_1 host=localhost user=u2d_api_user password=u2d_api_user_pass port=5432 sslmode=prefer'"
 alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
@@ -57,7 +66,7 @@ alias cdrc='cd $U2DBREWCLI_HOME'
 
 
 alias cdtseed='read -p "Are you sure? Wipe Dev DB?  Press any key. To exit type  Ctrl-C." -n 1 -r; cd $U2DAPI_HOME; tsc; npm run seed; echo "seed has been run"'
-alias cdtseedtest='cd $U2DAPI_HOME; tsc; npm run seed U2D_TEST_RUN; echo "seed seed testdata has been run"'
+alias cdtseedtest='cd $U2DAPI_HOME; tsc; npm run seed testdata; echo "seed seed testdata has been run"'
 alias cdtestall='start=$SECONDS;  echo "will run seed, api, and unit tests"; echo "when tests complete, check that app-emitted email was received by gmail"; pause1; cdt2;  pause5;  cdjest;  duration=$(( SECONDS - start )); echo "all tests including restcli http tests then jest unit tests, took "; echo $duration; echo " seconds, including one or two unnecessary tsc runs. Go confirm an email was sent. that is part of the test"'
 
 alias cdt2='cd $U2DAPI_HOME; npm run seed; echo "seed has been run"; pause5; cd /Users/hkon/Downloads/brew_restcli; ./restcli  -t 100000 $U2DAPI_HOME/test/http/*.*; cd72'
@@ -108,9 +117,9 @@ U2DAPI_HOME="/Users/hkon/utd/a2107276_u2drest/u2d-rest-ts"
 U2DFLUTTERWEB_HOME="/Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web"
 
 alias cddd='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/dev/deploy/prod'
-alias cd72='cd $U2DAPI_HOME'
-alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter'
-alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web'
+alias cd72='cd $U2DAPI_HOME;echo "npm start; rsapi3"'
+alias cd71='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter; echo "fbws = fbw; cd71b;rsui3"'
+alias cd71b='cd /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web; echo "ran fbw? hs for 8080 ui server.  is 300 cd72 apiserver running?  then localhost:8080"'
 alias cd70='cd /Users/hkon/utd/a201101_u2drest/u2d-rest && echo rest -- npm start'
 alias cd69='cd /Users/hkon/utd/a200929HkRteNativeFlutter/nativerte2
   && echo native rte frc -- rte works hello bold world!!'
@@ -183,6 +192,8 @@ alias cd15p5='cd /Users/hkon/utdObsolete/180409/grails-angular'
 alias cd14='echo "demonstrates mongo with scaffolded books: Grails 3 and MongoDB Tutorial"; cd /Users/hkon/utd/180421AMongoOnly/a80421grails3-mongodb'
 alias cd13='echo "demonstrates security and save of sec to mongo - graeme user: Grails 3 Spring Security Core and MongoDB Authentication Tutorial"; cd /Users/hkon/utd/180420BsecMongoNoang/grails3-authentication'
 
+alias cdex='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/devops/export/files'
+
 alias gba='git branch -a'
 alias grso='git remote show origin'
 alias gs='echo "git status" & git status'
@@ -231,8 +242,10 @@ parse_git_branch() {
 }
 
 lsf() {
-       ls -d -1 "$PWD/"*
+       ls -d -1 -a "$PWD/"*
 }
+
+
 
 
 gl2() {
@@ -345,10 +358,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 alias o='open .'
 alias gitnit='git init && git add . && git commit -m "initial" && cpcd'
-alias ssh1='ssh hkon@157.230.55.78'
+alias ssh1='sshvm3p'
 alias ni='npm install'
 alias doc='echo "get to digital ocean via terminal by ssh root@142.93.77.195 -i ~/.ssh/id_hbk190711b" && ssh root@142.93.77.195 -i ~/.ssh/id_hbk190711b'
-alias eb='emacs ~/.bash_profile'
+alias eb='emacs /Users/hkon/.bash_profile'
 alias ll='ls -l | grep -i 1804'
 # source .bash_profile 
 alias cdp='cd ..'
