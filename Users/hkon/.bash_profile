@@ -590,6 +590,7 @@ portproc() {
 sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i $1
 } 
 
+alias gst='git stash'
 alias gsl="git stash list"
 alias gsd="git stash drop"
 alias gsa="git stash apply"
