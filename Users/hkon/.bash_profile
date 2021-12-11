@@ -215,7 +215,7 @@ alias hhk='http-server -p 8080'
 echo "hk1"
 
 
-
+alias rfs='echo "restart flutter server"; cd71; fbw; cd71b; hs'
 
 
 alias gpod='git pull origin main1.0'
@@ -662,6 +662,10 @@ echo "green"
 
 echo "https://github.com/hhkk/a210620ConfigUtil/commits/main"
 
+alias ipaddressinternal='ipconfig getifaddr en0'
+alias ipaddressexternal='curl ifconfig.me'
+
+alias gtmp='grep -i $1 /tmp/temp.txt'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hkon/.sdkman"
