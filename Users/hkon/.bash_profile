@@ -12,20 +12,33 @@ alias nodeversion_loopback_lb4='sudo n latest'
 
 alias u2dprodpush='cddd ; source ./master_checkout_rsync_api_and_ui.sh'
 
-alias rsapi3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules --exclude .env.override $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
+alias rsapi3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules --exclude .env.override --exclude ts-out $U2DAPI_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/api'
+
+# DB DUMP and RESTORE 
+alias rspgdump='rsync -chavzP ustodoproduction@20.55.90.168:/home/ustodoproduction/ops/pgdump/  /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/devops/pgdumpprod
+ -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" ; cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/devops/pgdumpprod; echo "verify new content after this as postgres on the VM     sudo su postgres    then   script in vm bash like dumphk   "'
+
+
 alias rsui3='rsync -e "ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer" --delete --progress --partial -avz --exclude node_modules  $U2DFLUTTERWEB_HOME ustodoproduction@20.55.90.168:/home/ustodoproduction/prod/ui'
 
 alias rsync_api_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201101_u2drest/u2d-rest harsh@20.55.5.172:/home/harsh/rsync'
 alias rsync_flutter_OLD='rsync --delete --progress --partial -avz --exclude 'node_modules' /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/build/web harsh@20.55.5.172:/home/harsh/rsync'
 
 
-alias sshvm3p='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer ustodoproduction@20.55.90.168'
+alias sshvm3p='echo "source /home/ustodoproduction/.bashrc" | pbcopy; ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/ustodoproduction/ustodoproduction.cer ustodoproduction@20.55.90.168'
 
 alias sshvm='sshvm3p'
 
 alias sshvm3xxxxxxxx='ssh -i /Users/hkon/utd/cloud/azure/ssh/created_on_azure/hkon/hkon_ssh_ustodo3_created_on_azure.cer hkon@20.55.90.168'
 
+#alias dump1old='pg_dump ustodohk4_test  > /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/ops/pgdump/dbhkustodohk4_test_"$(date +%Y-%m-%d@%H:%M:%S)".sql' 
+alias cddump='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/devops/pgdumpprod'
+#alias cddumpold='cd /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/ops/pgdump'
 
+
+dump2() {
+pg_dump $1  > /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/ops/pgdump/$1_"$(date +%Y-%m-%d@%H:%M:%S)"_$2.sql
+}
 
 
 
@@ -46,7 +59,7 @@ alias pgsql='echo enter \\dt to see DB tables && psql'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 alias fbw='cd71; flutter build web'
-alias fbws='rsapi3; cd71; flutter build web; rsui3'
+alias fbws='echo "remember at end to scroll up to look for errors"; rsapi3; cd71; flutter build web; rsui3;echo "remember to scroll up to look for errors"'
 alias psqlhk='psql -U hkon -d u2d_1_0' #to run db database
 alias psqlu2d="psql 'dbname=u2d_1_1 host=localhost user=u2d_api_user password=u2d_api_user_pass port=5432 sslmode=prefer'"
 alias sshhs='ssh -i /Users/hkon/.ssh/forharsh-new.pem harsh@20.55.5.172'
@@ -254,6 +267,7 @@ gl2() {
  echo '========================== ' $1'b) git log '$3'..'$2
                           git log $3..$2
 }
+echo "hihka"
 
 glall () {
     git fetch --all
@@ -264,10 +278,10 @@ glall () {
     git status;
 }
 
+echo "hihkb"
 
 
-gl3()
-{
+gl3() {
     pushd .
     cd70
     glall
@@ -276,16 +290,13 @@ gl3()
     popd
 }
 
-gtmp()
-{
-    grep -i $1 /Users/hkon/tmp/temp.txt 
+echo "hihk1"
+
+gtmp3() {
+    grep -i dd /Users/hkon/tmp/temp.txt
 }
 
-
-
-
-
-
+echo "hihk2"
 
 
 
@@ -565,6 +576,15 @@ ff2() {
 find . -name '*' -print | grep -i $1 
 }
 
+gtmpr() {
+grep -i $1 /Users/hkon/utd/a2107276_u2drest/u2d-rest-ts/temp.txt
+    }
+
+gtmpf() {
+grep -i $1 /Users/hkon/utd/a201030_u2d_flutter/u2d-flutter/temp.txt
+    }
+
+
 sg() {
 set | grep -i $1
 }
@@ -665,7 +685,7 @@ echo "https://github.com/hhkk/a210620ConfigUtil/commits/main"
 alias ipaddressinternal='ipconfig getifaddr en0'
 alias ipaddressexternal='curl ifconfig.me'
 
-alias gtmp='grep -i $1 /tmp/temp.txt'
+alias gtmp2='grep -i $1 /tmp/temp.txt'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hkon/.sdkman"
